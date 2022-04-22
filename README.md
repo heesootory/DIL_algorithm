@@ -27,7 +27,7 @@ val d : Float = 12.34f //val d = 12.34f    -> float형은 f를 꼭 붙히기
 val str = "hello"
 val str = """ 안녕하세요.
 반갑습니다."""            //""" 3개쓰면, 줄바꿈,띄워쓰기 알아서 가능.
-val e : Char = 'g'    // 자바와 같이 Char은 숫자X, 작은따음표로 문자 하나
+val e : Char = 'g'    // 자바와 같이 Char은 문자를 의미, 작은따음표로 문자 하나
 val e = 'g'            //Char 로 자동인식.
 val boo = true         //Boolean으로 자동 인식.
 val boo : Boolean = true   //위와 동일
@@ -133,6 +133,7 @@ loop@for(i in 0..9){
 * arr.filter{it > 100} : {}안에는 it을 사용한 조건절이 나와서 조건에 해당하는 값만 뽑아냄
 * arr.find{it > 100} : {}람다식 안의 조건에 만족하는 첫번째 요소를 꺼냄
 * 배열과 관련된 함수를 사용할시, 그배열의 원소를 it으로 칭하면, 반복문 없이 순서대로 불러온다.
+* 모든 배열의 index는 Int형으로만 가능! Long도 불가능!
 
 
 | **라이브러리 함수형** | **builder클래스** |
@@ -215,12 +216,19 @@ val arr2 = Array(3, {i -> IntArray(4, {j -> j + i})})
 
 ```
 
+### ArrayList< type>()
+* 가변배열 Arraylist는 값을 추가, 수정, 제거 가능
+* Collections.min(arr)/Collections.max(arr) 로 최솟값, 최댓값
+* add(var), removeAt(index), clear(var)
+* remove(var) - 발견한 첫번째 var을 삭제
+
 
 ### 함수
 * fun 함수명(변수: 타입) : 리턴형{}
 * call by reference를 지원하지 않고, call by value만 가능.
 > 매개변수를 입력받을 변수로 조차 선언하지 못함. (아예 변경 불가)
 * 배열을 함수의 매개변수로 받을 때는 builder 객체형으로 표현.
+* 함수의 매개변수는  모두 Immutable로 변할수 없는 val타입이다.
 
 ```kotlin
 fun pluss(a: Int, b:Int):Int{       //리턴형이 있을때
