@@ -38,14 +38,32 @@ val g = 0b0110110       //2진수 -> int형으로 추론
 ### 형변환
 * 코틀린은 암시적 형변환 지원X, 전부 명시적 형변환 해줘야함.
 > toByte(), toShort(), toInt(), toLong(), toFloat(), toDouble(), toChar
+* String을 int로 형변환시, var!!.toInt() -> !!를 붙여준다
+
 ```kotlin
 var a : Int = 12345
 var b :Long = a.toLong()       //int를 long으로 바꿀때도, 명시적으로 형변환 해줘야함
+
+var c = readLine()          //입력은 String
+var d = c!!.toInt()         //int로 형변환
+
 ```
 
 
 ### 데이터 타입 확인
 > 변수.javaClass
+
+### 입력
+> 코틀린용 readLine()과 자바에서 가져온 Scanner(System.`in`)이 있다.
+> readLine()은 무조건 String로 받아오므로, 형변환이 필요하다.
+```kotlin
+var input = readLine()                  //문자열을 다 받아옴
+
+var s = Scanner(System.`in`)
+var input: Int = s.nextInt()            //t숫자를 하나씩 받아옴
+var input = s.next()                    //띄워쓰기를 기준으로 단어를 받아옴
+
+```
 
 
 ### 출력
@@ -114,6 +132,7 @@ loop@for(i in 0..9){
 * builder클래스는 클래스에서 만들어진 객체배열이므로, 사이즈만 지정해도  Int 형이면 0으로 초기화됨.
 * arr.filter{it > 100} : {}안에는 it을 사용한 조건절이 나와서 조건에 해당하는 값만 뽑아냄
 * arr.find{it > 100} : {}람다식 안의 조건에 만족하는 첫번째 요소를 꺼냄
+* 배열과 관련된 함수를 사용할시, 그배열의 원소를 it으로 칭하면, 반복문 없이 순서대로 불러온다.
 
 
 | **라이브러리 함수형** | **builder클래스** |
@@ -171,13 +190,13 @@ println("str = ${str}")       //ABCDE 문자열그대로 출력
 println("str = ${str.toCharArray().joinToString(",")}")         //A,B,C,D,E
 // toCharArray함수는 자바의 함수를 그대로 가져온것
 for((i,iv) in arr.withIndex()){
-        println("($i,$iv)")                 //(0,1)(1,2)(2,3)(3,4)(4,5)
+    println("($i,$iv)")                 //(0,1)(1,2)(2,3)(3,4)(4,5)
 }
-    print("ans = ${arr.filter{it > 3}}\n")  //filter를 이용해서 새로운 함수를 생성 or 출력 가능
-    val arr2 = arr.filter{it > 3}           //ans = [4,5]
-    for((i,iv) in arr2.withIndex()){
-        println(iv)                         //4,5
-    }
+print("ans = ${arr.filter{it > 3}}\n")  //filter를 이용해서 새로운 함수를 생성 or 출력 가능
+val arr2 = arr.filter{it > 3}           //ans = [4,5]
+for((i,iv) in arr2.withIndex()){
+    println(iv)                         //4,5
+}
 ```
 
 #### 2차원 배열
@@ -185,11 +204,15 @@ for((i,iv) in arr.withIndex()){
 ```kotlin
 val arr = Array(3, {IntArray(4)})       // 3x4 행렬 - 0으로 초기화 됨.
 for((i,iv) in arr.withIndex()){
-        for((j, jv) in iv.withIndex()){
-            print("$jv ")              // 0 0 0 0
-        }                              // 0 0 0 0
-        println()                      // 0 0 0 0
-    }
+    for((j, jv) in iv.withIndex()){
+        print("$jv ")              // 0 0 0 0
+    }                              // 0 0 0 0
+    println()                      // 0 0 0 0
+}
+
+val arr2 = Array(3, {i -> IntArray(4, {j -> j + i})})        
+                                    //행넘버를 활용해서, 초기화 할시.
+
 ```
 
 
