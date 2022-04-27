@@ -294,8 +294,33 @@ fun add(a: Int, b: Int) = a+b
 ```
 > 변수에 담아서 사용
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
+## C#
+
+### ArrayList
+
+> ArrayList는 c++ 의 vector같은 동적배열이다.
+```cs
+ArrayList arr = new ArrayList();    
+//이렇게 크기를 지정하지 않고, 배열기호인[]도 사용하지 않음
+ArrayList[] arr = new ArrayList[100];
+//따라서 이런식으로 만들었다면, 각각이 ArrayList인 일반배열 100개짜리를 만든것이다.
+//따라서 이차원 배열이 됨.
+```
+
+![c#](/Image/cs_1.PNG)
 
 
 
