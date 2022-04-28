@@ -699,22 +699,21 @@ var arr2 = Array<ArrayList<Int>>(10) {ArrayList<Int>()}
 ```
 
 ### python
-* 1차원 배열
-```py
+> 파이썬은 일반 배열자체가 list이다.
+>
+> 타입을 지정할 필요도 없음
 
+
+* 1차원 list
+```py
+arr = []
+arr = [0,1,2,3,4,5,6,7,8,9]
+arr = [0 for _ in range(10)]
+arr = [False for _ in range(10)]
+arr = [i for i in range(10)]       //0,1,2,3,4,5,6,7,8,9
 ```
 
-* 2차원 배열
+*2차원 list
 ```py
-
-```
-
-* ArrayList
-```py
-
-```
-
-* ArrayList 2차원 배열(1차 - ArrayLisr, 2차 - 배열)
-```py
-
+arr2 = [[] for _ in range(10)]
 ```
