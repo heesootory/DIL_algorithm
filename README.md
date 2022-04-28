@@ -138,6 +138,8 @@ loop@for(i in 0..9){
 
 | **라이브러리 함수형** | **builder클래스** |
 |-|-|
+|특정값을 넣어서 배열을 생성하는 경우| 크기만 정해서 생성하는 경우|
+|arrayof(1,2,3)| Array(10, {0})|
 |charArrayOf()|CharArray|
 |shortArrayOf()|ShortArray|
 |byteArrayOf()|ByteArray|
@@ -151,6 +153,18 @@ loop@for(i in 0..9){
 
 
 ```kotlin
+* 라이브러리 함수형
+var arr = arrayOf(1,100,"하이", false, 12.34);      //타입을 지정하지 않을시, 다양한 타입이 들어가도 상관없음.
+var arr = intArrayOf(1,2,3)     // *제공함수 형    
+var arr = arrayOf<Int>(1,2,3);  // *제네릭 형
+//------------------------------------------------------
+* builder클래스형
+var arr2 = Array(10, {0});
+var arr2 = IntArray(10, {0})    // * 제공클래스 형
+var arr2 = Array<Int>(10, {0})  // * 제네릭 형
+var arr = Array<Int>(10) {i -> i}   // * 제네릭 형 - {}가 밖으로 나와도 가능
+//-------------------------------------------------------
+
 val a = Array(10, {0})                                  //10개의 원소, 0으로 초기화
 val b = Array<Int>(10, {1})                             //10개 1로 초기화
 val c = Array<Int?>(10, {null})                 
@@ -312,6 +326,8 @@ fun add(a: Int, b: Int) = a+b
 ### ArrayList
 
 > ArrayList는 c++ 의 vector같은 동적배열이다.
+
+
 ```cs
 ArrayList arr = new ArrayList();    
 //이렇게 크기를 지정하지 않고, 배열기호인[]도 사용하지 않음
@@ -453,3 +469,252 @@ fun main(args : Array<String>) {
 > Call by assignment(Call by object-reference) 모든것을 객체화 했기때문에, 변수명은 이름표에 불과.
 <br>
 > call by reference 지원X.
+
+
+<br>
+<br>
+<br>
+
+---
+
+
+## range based for
+
+### C++
+
+```cpp
+int arr[] = {1,2,3,4,5};
+for(auto num: arr)
+    printf("%d", num);
+```
+
+
+### C#
+```cs
+int[] arr = {1,2,3,4,5};
+for(int i in arr)
+    Write($"{i}");
+```
+
+### java
+```java
+int[] arr = {1,2,3,4,5};
+for(int i: arr)
+    System.out.print(i);
+```
+
+### kotlin
+> 코틀린은 기본이 for-each의 형태이다.
+```kt
+var arr = arrayOf(1,2,3,4,5);
+for(i in arr)
+    print("${i}");
+```
+
+### python
+```py
+arr[] = {1,2,3,4,5};
+for i in arr:
+    print(i);
+```
+
+## 출력
+
+### C<sup>++<sup>
+```cpp
+int i = 10;
+cout << "정답은" << i << "입니다." << '\n';
+```
+
+### C# 
+```cs
+int i = 10;
+WriteLine("정답은 ${i}입니다.");
+```
+
+### java
+```java
+int i = 10;
+System.out.println("정답은 " + i + "입니다.");
+```
+
+### kotlin
+```kt
+val i = 10
+println("정답은 &{i}입니다.")
+```
+
+### python
+```py
+i = 10
+print(f'정답은 {i}입니다.')
+```
+
+<br>
+<br>
+<br>
+
+
+---
+
+## 배열
+
+### C++
+* 1차원 배열
+```cpp
+//static
+int arr[10];
+//local
+int arr[10] = {};
+```
+
+* 2차원 배열
+```cpp
+//static
+int arr2[10][10];
+```
+
+* vector (가변 배열)
+```cpp
+vector<int> v;
+```
+
+* vector배열(1차원- vector, 2차원 - 배열)
+```cpp
+vactor<int> arr2[10];
+//각 행이 vector로 되어있는 10개 짜리 배열
+```
+
+* 2차원 vector배열(1차원- vector, 2차원 - vector)
+```cpp
+vector<vector<int>> arr2;
+```
+
+
+### C#
+* 1차원 배열
+```cs
+int[] arr = new int[10];
+```
+
+* 2차원 배열
+> reference value를 담을 공간의 갯수는 지정해줘야함.
+```cs
+int[][] arr2 = new int[10][]
+```
+
+* ArrayList (가변배열)
+```cs
+ArrayList arr = new ArrayList();
+```
+
+* ArrayList배열(1차원- ArrayList, 2차원 - 배열)
+```cs
+//local
+
+ArrayList[] arr2 = new ArrayList[10];       //배열의 주소값 생성
+for(int i = 0; i < 10; i++) arr2[i] = new ArrayList();     
+// 배열의 index마다 reference value 생성.
+
+//static 
+//- 함수를 통해서 생성시켜주자.
+ArrayList[] arr2 = new ArrayList[10];      //배열 주소 생성 
+
+static void make_arr(ArrayList[] arr_list){
+    for(int i = 0; i< 10; i++) arr_list[i] = new ArrayList();
+}
+
+make_arr(arr2)
+```
+
+* 2차원 ArrayList배열(1차원- vector, 2차원 - vector)
+```cs
+
+```
+
+
+### java
+* 1차원 배열
+```java
+int[] arr = new int[10];
+```
+
+* 2차원 배열
+> reference value를 담을 공간의 갯수는 지정해줘야함. (c#과 동일)
+```java
+int[][] arr2 = new int[10][];
+```
+
+* ArrayList (가변배열)
+> c#과 달리 제너릭을 통해 타입을 지정해줘야함.
+```cs
+ArrayList<Integer> arr = new ArrayList();
+```
+
+* ArrayList 2차원 배열(1차 - ArrayLisr, 2차 - 배열)
+> c#과 매우 유사
+```cs
+//local
+
+ArrayList<Integer>[] arr2 = new ArrayList[10];      //배열 주소 생성
+for(int i = 0; i< 10; i++) arr2[i] = new ArrayList(); 
+// 배열의 index마다 reference value 생성.
+
+//static 
+//- 함수를 통해서 생성시켜주자.
+ArrayList<Integer>[] arr2 = new ArrayList[10];      //배열 주소 생성
+
+static void make_arr(ArrayList<Integer>[] arr_list){
+    for(int i = 0; i< 10; i++) arr_list[i] = new ArrayList();
+}
+
+make_arr(arr2);
+```
+
+
+### kotlin
+* 1차원 배열
+```kt
+var Array(10, {0})
+var Array<Int>(10) {i -> i}
+var arrayOf(0,0,0,0,0)
+```
+
+* 2차원 배열
+```kt
+var arr2 = Array(10, {Array(10, {i ->i})})
+var arr2 = Array<Array<Int>>(10) {Array<Int>(10, {i->i})}
+var arr2 = Array<Array<Int>>(10) {Array<Int>(10) {i->i}}
+```
+
+* ArrayList (가변배열)
+> 자바처럼 타입 지정.
+```kt
+var arr = ArrayList<Int>();
+```
+
+* ArrayList 2차원 배열(1차 - ArrayList, 2차 - 배열)
+```kt
+var arr2 = Array<ArrayList<Int>>(10) {ArrayList<Int>()}
+```
+
+### python
+* 1차원 배열
+```py
+
+```
+
+* 2차원 배열
+```py
+
+```
+
+* ArrayList
+```py
+
+```
+
+* ArrayList 2차원 배열(1차 - ArrayLisr, 2차 - 배열)
+```py
+
+```
