@@ -325,7 +325,12 @@ fun add(a: Int, b: Int) = a+b
 
 ### ArrayList
 
-> ArrayList는 c++ 의 vector같은 동적배열이다.
+> ArrayList는 c++ 의 vector같은 가변배열이다.
+
+* 타입을 지정 안해도되기 떄문에, 다양한 타입을 한꺼번에 담을 수 있다.
+* 따라서, 어떤 지정된 변수로 받을 때는 형변환을 명시적으로 해줘야함.
+
+* ArrayList에 타입이 지정된게, List이다.
 
 
 ```cs
@@ -334,6 +339,12 @@ ArrayList arr = new ArrayList();
 ArrayList[] arr = new ArrayList[100];
 //따라서 이런식으로 만들었다면, 각각이 ArrayList인 일반배열 100개짜리를 만든것이다.
 //따라서 이차원 배열이 됨.
+arr.Add(1);
+arr.Add('5');
+arr.Add("hello");
+
+int v = (int)arr[0];        //명시적 형변환
+
 ```
 
 ![c#](/Image/cs_1.PNG)
@@ -595,6 +606,7 @@ vector<vector<int>> arr2;
 * 1차원 배열
 ```cs
 int[] arr = new int[10];
+길이 = arr.Length;
 ```
 
 * 2차원 배열
@@ -606,6 +618,7 @@ int[][] arr2 = new int[10][]
 * ArrayList (가변배열)
 ```cs
 ArrayList arr = new ArrayList();
+갯수 = arr.Count;
 ```
 
 * ArrayList배열(1차원- ArrayList, 2차원 - 배열)
@@ -637,6 +650,7 @@ make_arr(arr2)
 * 1차원 배열
 ```java
 int[] arr = new int[10];
+//길이 : arr.length
 ```
 
 * 2차원 배열
@@ -647,8 +661,12 @@ int[][] arr2 = new int[10][];
 
 * ArrayList (가변배열)
 > c#과 달리 제너릭을 통해 타입을 지정해줘야함.
+
+* 길이(갯수) : arr.Count
+* 
 ```cs
 ArrayList<Integer> arr = new ArrayList();
+//길이 : arr.size()
 ```
 
 * ArrayList 2차원 배열(1차 - ArrayLisr, 2차 - 배열)
@@ -716,4 +734,72 @@ arr = [i for i in range(10)]       //0,1,2,3,4,5,6,7,8,9
 *2차원 list
 ```py
 arr2 = [[] for _ in range(10)]
+```
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+---
+
+## queue 생성
+
+### C++
+```cpp
+#include <queue>
+
+queue<int> q;
+
+q.push(var);
+int var = q.front();
+q.pop();
+q.empty();
+```
+
+### C#
+```cs
+using System.Collections;
+
+Queue q = new Queue();
+q.Enqueue(var);     //데이터 추가
+int var = (int)q.Dequeue();     //최상위 데이터 제거& 호출
+int var = q.Count;         //갯수
+q.Count
+```
+
+
+### JAVA 
+```java
+import java.util.*;
+
+Queue<Integer> q = new LinkedList();
+q.add(var);
+int var = q.peek();     //최상위 데이터 호출
+q.poll()        //최상위 데이터 삭제
+q.isEmpty()
+```
+
+
+### Kotlin
+> 자바와 함수는 동일.
+```kt
+var q = LinkedList<Int>()
+
+q.add(var)
+var var = q.peek()
+q.poll()
+q.isEmpty()
+```
+
+### python
+```py
+from collections import deque   
+
+q = deque()
+q.append(var)   //가장 마지막에(right) 데이터 추가
+var = q.popleft()       //가장 앞의 (left) 데이터 제거 & 호출
+// 큐의 길이  : len(q)
 ```
