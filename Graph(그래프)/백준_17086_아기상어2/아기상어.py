@@ -15,13 +15,7 @@ class shark:
         self.y = y
 
 def bfs():
-    global max_cnt
-    global m
-    global n
-    global sea
-    global q
-    global mx
-    global my
+    global max_cnt     # 상수는 메서드안에서 사용하려면, 전역변수화 시켜야함
     while len(q) != 0:
         sh = q.popleft()
         for p in range(8):
