@@ -603,6 +603,7 @@ vector<vector<int>> arr2;
 
 
 ### C#
+
 * 1차원 배열
 ```cs
 int[] arr = new int[10];
@@ -610,10 +611,24 @@ int[] arr = new int[10];
 ```
 
 * 2차원 배열
-> reference value를 담을 공간의 갯수는 지정해줘야함.
+> java와 다르게 생성시에는, reference value를 담을 공간의 갯수만 지정가능.
 ```cs
-int[][] arr2 = new int[10][]
+int[][] arr2 = new int[10][];
+for(int i = 0; i< arr2.Length; i++) arr[i] = new int[10];
 ```
+cf > 2차원 배열 입력받기
+```cs
+string[] s = ReadLine().Split(' ');
+for(int i = 0; i< arr2.Length; i++)
+        {
+            s = ReadLine().Split(' ');
+            for(int j = 0; j < arr2[i].Length; j++)
+            {
+                arr2[i][j] = int.Parse(s[j]);
+            }
+        }
+```
+
 
 * ArrayList (가변배열)
 ```cs
@@ -656,7 +671,7 @@ int[] arr = new int[10];
 * 2차원 배열
 > reference value를 담을 공간의 갯수는 지정해줘야함. (c#과 동일)
 ```java
-int[][] arr2 = new int[10][];
+int[][] arr2 = new int[10][10];
 ```
 
 * ArrayList (가변배열)
@@ -733,8 +748,19 @@ arr = [i for i in range(10)]       //0,1,2,3,4,5,6,7,8,9
 
 *2차원 list
 ```py
-arr2 = [[] for _ in range(10)]
+arr2 = [[0 for _ in range(10)] for _ in range(10)]
 ```
+
+cf> 2차원 배열 입력 받기
+```py
+for i in range(len(arr2)):
+    inpu = input().split(' ')
+    for j in range(len(arr2[i])):
+        arr2[i][j] = int(inpu[j])
+
+```
+
+
 
 <br>
 <br>
@@ -754,9 +780,11 @@ arr2 = [[] for _ in range(10)]
 queue<int> q;
 
 q.push(var);
-int var = q.front();
 q.pop();
-q.empty();
+bool b = q.empty();
+int var = q.front();
+int var = q.back();
+int var = q.size();
 ```
 
 ### C#
@@ -767,7 +795,7 @@ Queue q = new Queue();
 q.Enqueue(var);     //데이터 추가
 int var = (int)q.Dequeue();     //최상위 데이터 제거& 호출
 int var = q.Count;         //갯수
-q.Count
+
 ```
 
 
@@ -801,5 +829,60 @@ from collections import deque
 q = deque()
 q.append(var)   //가장 마지막에(right) 데이터 추가
 var = q.popleft()       //가장 앞의 (left) 데이터 제거 & 호출
-// 큐의 길이  : len(q)
+var = len(q)           //큐의 길이
 ```
+
+
+## Class
+
+### C++
+> c++은 struct이 있다. 인스턴스 변수들로만 구성되어야 한다.
+> 
+> 메소드나 생성자가 들어갈 수없다.
+
+```cpp
+struct shark
+{
+    int x;
+    int y;
+};
+
+
+shark s;
+
+```
+<br>
+
+
+### C#
+#### static class (정적 클래스)
+
+* 정적클래스는 생성자를 가질 수 없다. <br>
+  static class는 인스턴스 변수만 가지고 있다. 유니티 게임을 만들 때, 기존의 점수를 "싱글톤 패턴"으로 만들었을때 경우를 생각해보자.
+  그 인스턴스 변수를 어디서 든지 사용할 수 있게 만들고, 그 집합이 static class이다. static빼면 어디서든 객체를 생성할 수 있는 일반적인 class이다.
+* static class안의 인스턴스 변수들은 static 을 무조건 가지고 잇어야한다.
+  static class의 변수들은 모두 어디서나 쓸수있는 전역변수 들이므로, 당연히 static 을 가지고 있어야함.
+
+```cs
+public static class shark{
+    static int x;
+    static int y;
+}
+public class shark{
+        public int x;
+        public int y;
+        public shark(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+
+shark shark_position = new shark(i, j);
+
+```
+
+### java
+
+
