@@ -678,10 +678,14 @@ int[][] arr2 = new int[10][10];
 > c#과 달리 제너릭을 통해 타입을 지정해줘야함.
 
 * 길이(갯수) : arr.Count
-* 
+
 ```cs
-ArrayList<Integer> arr = new ArrayList();
+ArrayList arr = new ArrayList();                //타입 앞뒤 전부 생략시, object에 대한 배열
+ArrayList<Integer> arr = new ArrayList();       //타입생략 가능
 //길이 : arr.size()
+ArrayList<Integer> arr = new ArrayList<>();        //타입생략 가능
+ArrayList<Integer> arr = new ArrayList<Integer>(10);        
+//capacity (용량) 설정 가능
 ```
 
 * ArrayList 2차원 배열(1차 - ArrayLisr, 2차 - 배열)
