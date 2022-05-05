@@ -540,7 +540,7 @@ cout << "정답은" << i << "입니다." << '\n';
 ### C# 
 ```cs
 int i = 10;
-WriteLine("정답은 ${i}입니다.");
+WriteLine($"정답은 {i}입니다.");
 ```
 
 ### java
@@ -552,7 +552,7 @@ System.out.println("정답은 " + i + "입니다.");
 ### kotlin
 ```kt
 val i = 10
-println("정답은 &{i}입니다.")
+println("정답은 ${i}입니다.")
 ```
 
 ### python
