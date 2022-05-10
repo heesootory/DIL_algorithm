@@ -535,30 +535,35 @@ for i in arr:
 ```cpp
 int i = 10;
 cout << "정답은" << i << "입니다." << '\n';
+printf("%.3lf", mid);        // 소수점 3번째까지
 ```
 
 ### C# 
 ```cs
 int i = 10;
 WriteLine($"정답은 {i}입니다.");
+Write("{0:F3}", mid);       // 소수점 3번째까지 출력
 ```
 
 ### java
 ```java
 int i = 10;
 System.out.println("정답은 " + i + "입니다.");
+System.out.println(String.format("%.3f", mid));  // 소수점 3번째까지 출력
 ```
 
 ### kotlin
 ```kt
 val i = 10
 println("정답은 ${i}입니다.")
+print("%.3f".format(mid))         // 소수점 3번째까지 출력   
 ```
 
 ### python
 ```py
 i = 10
 print(f'정답은 {i}입니다.')
+print(f'{mid:.3f}')     # 소수점 3번째까지 출력
 ```
 
 <br>
