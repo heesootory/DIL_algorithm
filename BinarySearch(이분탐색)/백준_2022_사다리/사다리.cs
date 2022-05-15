@@ -23,7 +23,7 @@ class Program
 
         while (max_len - min_len > 0.000001)
         {
-            mid = (max_len + min_len) / 2.0;        // 이분탐색
+            mid = (max_len + min_len) / 2.0;
             double result = mid_height(x, y, mid);
             if (c <= result) min_len = mid;
             else max_len = mid;
