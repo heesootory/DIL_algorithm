@@ -35,6 +35,8 @@ fun main(args: Array<String>) {
                 }
             }
         }
-        if (a < b) print("${a*g} ${b*g}") else print("${b*g} ${a*g}")
+    
+        if (a < b) print("${a*g} ${b*g}") 
+        else print("${b*g} ${a*g}")
     }
 }
