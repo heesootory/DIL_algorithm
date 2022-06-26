@@ -218,7 +218,7 @@ for((i,iv) in arr2.withIndex()){
 > Array(m, {oooArray(n)}) -> m x n 배열
 ```kotlin
 val arr = Array(3, {IntArray(4)})       // 3x4 행렬 - 0으로 초기화 됨.
-for((i,iv) in arr.withIndex()){
+for((i,iv) in arr.withIndex()){     // i,j는 행과 열의 라인수를 의미하고, iv,jv는 원소의 값을 나타낸다.
     for((j, jv) in iv.withIndex()){
         print("$jv ")              // 0 0 0 0
     }                              // 0 0 0 0
