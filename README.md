@@ -74,6 +74,7 @@ print(str)
 print("hello world\n")
 println("it it ${num}")
 println("hi ${str}")
+print("%.3f".format(ans)) // float 타입 ans를 소수 3번째 자리까지 출력
 ```
 
 ### 반복문(for)
