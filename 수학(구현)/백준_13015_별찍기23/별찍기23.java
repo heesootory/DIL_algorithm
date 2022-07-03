@@ -9,7 +9,7 @@ public class Main{
         int col = 4*n-3;
 
         for(int i = 0; i< col - idx + 1; i++) arr[r][i] = ' ';
-
+a
         if(r == 0 || r == row -1){
             for(int i = 0; i< n; i++) arr[r][i] = '*';
             for(int i = col - n; i< col; i++) arr[r][i] = '*';
