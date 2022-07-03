@@ -28,7 +28,7 @@ class Program
     }
     public static void Main(string[] args)
     {
-        for (int i = 0; i < arr.Length; i++) arr[i] = new char[400];
+        for (int i = 0; i < arr.Length; i++) arr[i] = nsew char[400];
         int n = int.Parse(ReadLine());
         int idx = 0;
         
