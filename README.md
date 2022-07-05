@@ -544,6 +544,7 @@ printf("%.3lf", mid);        // 소수점 3번째까지
 int i = 10;
 WriteLine($"정답은 {i}입니다.");
 Write("{0:F3}", mid);       // 소수점 3번째까지 출력
+Write("{0:D3}", mid);       // 3자리로 출력, 남는곳은 0으로 채움.
 ```
 
 ### java
@@ -551,6 +552,7 @@ Write("{0:F3}", mid);       // 소수점 3번째까지 출력
 int i = 10;
 System.out.println("정답은 " + i + "입니다.");
 System.out.println(String.format("%.3f", mid));  // 소수점 3번째까지 출력
+System.out.println(String.format("%03d", mid));  // 3자리로 출력, 빈자리는 0으로 채움.
 ```
 
 ### kotlin
@@ -565,6 +567,7 @@ print("%.3f".format(mid))         // 소수점 3번째까지 출력
 i = 10
 print(f'정답은 {i}입니다.')
 print(f'{mid:.3f}')     # 소수점 3번째까지 출력
+print("%02d" %(min))       # 변수를 2자리로 출력, 빈자리는 0으로 채움.
 ```
 
 <br>
