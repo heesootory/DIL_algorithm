@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class 일대일가위바위보 {
+public class Solution {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 
