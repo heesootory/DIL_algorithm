@@ -29,7 +29,7 @@ public class Main{
         Pair p3 = new Pair(7, 3);
         Pair[] arr = {p1, p2, p3};
 
-        Arrays.sort(arr);       // x를 기준으로 오름차순 정렬
+        Arrays.sort(arr);       // x를 기준으로 내림차순 정렬
 
         for(Pair p : arr) System.out.println(p.x + " " + p.y);
     }
