@@ -34,7 +34,7 @@ public class Main {
             int max = 0;
             for(int j = i-1; j >= 0; j--){          // 배열의 수를 하나씩, 그 지점을 기준으로 이전 수들중  
                 if(arr[j] < arr[i]){                // 현재의 수보다 작을 때
-                    max = Math.max(max, dp[j]);     // dp에 기록된 수의 최댓값을 찾고
+                    max = Math.max(max, dp[j]);     // dp에 기록된 수의 최댓값을 찾고       -> 🐶 배열에서 빠르고 간단하게 최댓값을 갱신하는 방법.
                 }
             }
             dp[i] = max+1;                          // dp의 값 중 죄댓값+1 로 최신화
