@@ -47,7 +47,7 @@ public class test {
             PriorityQueue<Integer> ascending_pq  = new PriorityQueue<>(new Comparator<Integer>() {
                 @Override
                 public int compare(Integer o1, Integer o2) {
-                    return o2.compareTo(o1);    //가능
+                    return o2 - (o1);    //가능
                 }
             });
 //            PriorityQueue<Integer> ascending_pq  = new PriorityQueue<>(Collections.reverseOrder());       // 가능
@@ -88,7 +88,7 @@ public class test {
             else {
                 int max = q_remove(ascending_pq, map);
                 int min = (map.size() == 0) ? max : q_remove(descending_pq, map);
-                // maxm를 구할때 map의 사이즈가 바낄 가능성 있으므로, 다시 한번 검사.
+                // max를 구할때 map의 사이즈가 바낄 가능성 있으므로, 다시 한번 검사.
 
                 System.out.println(max + " " + min);
             }
@@ -102,6 +102,8 @@ public class test {
             k = q.poll();
 
             int cnt = map.getOrDefault(k, 0);
+            // map에서 이미 삭제를 해버려서 존재하지 않는다면,  get자체가 불가능해서 일부러 0을 출력하게 하고
+            // 아래에서 처리. -> 그냥 큐에서만 삭제하도록.
             if(cnt == 0) continue;      // 그냥 큐만 삭제
 
             if(cnt == 1) map.remove(k);     // 한개 남은거면 map에서도 삭제.
