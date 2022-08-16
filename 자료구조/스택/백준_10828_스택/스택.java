@@ -1,3 +1,4 @@
+package 스택.백준_10828_스택;
 import java.io.*;
 import java.util.*;
 
