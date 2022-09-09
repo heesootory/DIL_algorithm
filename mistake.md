@@ -6,3 +6,4 @@
 
 
 ![예지1](Image/%EC%98%88%EC%A7%801.jpg)
+![예지1](Image/%EC%98%88%EC%A7%80%ED%88%AC%EB%AA%85.png)
